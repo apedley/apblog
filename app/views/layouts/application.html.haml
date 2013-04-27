@@ -12,6 +12,11 @@
         = render 'layouts/header'
       .row
         .span9
+          .flash
+            %p.notice= notice
+            - if alert
+              %p.alert= alert
+
           = yield
         .span3
           = render 'layouts/sidebar'

@@ -12,7 +12,6 @@ end
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'devise'
 
 gem 'haml-rails'
 gem 'bootstrap-sass'
