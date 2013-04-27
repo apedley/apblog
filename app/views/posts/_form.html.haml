@@ -10,16 +10,13 @@
     = f.label :title
     = f.text_field :title
   .field
-    = f.label :preview
-    = f.text_field :preview
+    = f.label :tag_list, "Tags separated by commas"
+    = f.text_field :tag_list
   .field
     = f.label :body
     = f.text_area :body
   .field
     = f.label :published
     = f.check_box :published
-  .field
-    = f.label :icon
-    = f.text_field :icon
   .actions
     = f.submit 'Save'

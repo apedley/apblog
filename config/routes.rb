@@ -1,6 +1,7 @@
 Andrewpedley::Application.routes.draw do
   get "static/about"
   get "static/home"
+  get 'tags/:tag', to: 'posts#index', as: :tag
 
   resources :posts
   root :to => 'static#home'

@@ -2,5 +2,9 @@
 - @posts.each do |post|
   .post
     %h3.title= post.title
+    %p.tags
+      - post.tag_list.each do |t|
+        = link_to t, tag_path(t)
+
     .body= post.body
 
