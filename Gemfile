@@ -25,8 +25,11 @@ group :test do
   gem 'libnotify'
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
+  gem 'guard-spork'
+  gem 'spork'
 end
 
 group :development do
   gem 'meta_request'
+  gem 'pry-rails'
 end

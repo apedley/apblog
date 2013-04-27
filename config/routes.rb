@@ -1,5 +1,9 @@
 Andrewpedley::Application.routes.draw do
+  get "static/about"
+  get "static/home"
+
   resources :posts
+  root :to => 'static#home'
 
 
   # The priority is based upon order of creation:
