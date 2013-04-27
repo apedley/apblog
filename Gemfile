@@ -12,11 +12,13 @@ end
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
-
-gem 'acts-as-taggable-on'
+gem 'devise'
 
 gem 'haml-rails'
 gem 'bootstrap-sass'
+
+gem 'redcarpet'
+gem 'pygments.rb'
 
 gem "rspec-rails", :group => [:test, :development]
 

@@ -1,14 +1,11 @@
 %h3.title
   = @post.title
 %p.tags
-  - @post.tag_list.each do |t|
+  - @post.tags.map(&:name).each do |t|
     = link_to t, tag_path(t)
-.body= @post.body
+.body= markdown(@post.body)
 
 
--#.tag_cloud
-  -#- tag_cloud Post.tag_counts, %w{s m l} do |tag, css_class|
-    -#= link_to tag.name, tag_path(tag.name), class:css_class
 .links
   = link_to 'Edit', edit_post_path(@post)
   \|
