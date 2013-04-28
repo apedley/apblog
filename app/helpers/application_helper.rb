@@ -40,4 +40,9 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
+  def preview(html)
+    r = Random.rand(30..120) + 540
+    truncate_html(html, length: r, omission: '...(cont)')
+  end
+
 end

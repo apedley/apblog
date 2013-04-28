@@ -18,9 +18,10 @@ gem 'bootstrap-sass'
 
 gem 'redcarpet'
 gem 'pygments.rb'
+gem 'markdownizer'
+gem 'truncate_html'
 
 gem 'kaminari'
-gem 'sunspot_rails'
 
 gem "rspec-rails", :group => [:test, :development]
 
@@ -44,4 +45,5 @@ group :development do
   gem 'meta_request'
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'binding_of_caller'
 end

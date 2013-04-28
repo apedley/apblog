@@ -1,2 +1,17 @@
 - provide(:title, 'Home')
-= render :partial => 'posts/post', :collection => @posts
+- @posts.each do |post|
+  .post
+    %h3.title
+      = link_to post.title, post
+    %p.tags
+      - post.tags.map(&:name).each do |t|
+        = link_to t, tag_path(t)
+    %p.date.inverse
+      = post.published_at
+    %p.author.inverse
+      = link_to post.user.name, post.user
+    .body= preview(post.body_html)
+    - if current_user
+      .links
+        = link_to 'Edit', edit_post_path(post)
+        = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }

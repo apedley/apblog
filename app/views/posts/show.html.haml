@@ -1,11 +1,14 @@
-%h3.title
-  = @post.title
+.page-header
+  %h1
+    = @post.title
+    %small= @post.subtitle
+
 %p.tags
   - @post.tags.map(&:name).each do |t|
     = link_to t, tag_path(t)
 %p.author
   = link_to @post.user.name, @post.user
-.body= markdown(@post.body)
+.body= raw @post.body_html
 
 - if current_user
   .links

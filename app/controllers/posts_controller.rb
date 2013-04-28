@@ -52,6 +52,8 @@ class PostsController < ApplicationController
 
     @post.user = current_user
 
+    @post.body_html = markdown(params[:body])
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }

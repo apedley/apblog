@@ -9,7 +9,12 @@ h1#title {
     }
   }
 }
-
+.post {
+  margin-bottom: .5em;
+  padding-bottom: 2em;
+  border-bottom: .2em solid $grayDark;
+  // @include border-radius(4px);
+}
 form.edit-post {
   input, textarea {
     width: auto;
