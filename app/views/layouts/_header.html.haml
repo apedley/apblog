@@ -1,4 +1,14 @@
-.span9
-  header
-.span3
-  .user_nav
+.row
+  .span8
+    header
+  .span4
+    .user_nav
+      - if current_user
+        %p Logged in as #{current_user.name}
+        = link_to "Log out", logout_path
+      - else
+        = link_to "Sign up", signup_path
+        = form_tag(sessions_path, :class => 'form-inline') do
+          = text_field_tag :name, nil, :placeholder => 'username', :class => 'input-small'
+          = password_field_tag :password, nil, :placeholder => 'password', :class => 'input-small'
+          = button_tag 'Log in', :class => "btn"

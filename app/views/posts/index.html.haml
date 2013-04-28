@@ -8,9 +8,11 @@
     %p.tags
       - post.tags.map(&:name).each do |t|
         = link_to t, tag_path(t)
-
+    %p.author
+      = link_to post.user.name, post.user
     .body= post.body
-    .links
-      = link_to 'Edit', edit_post_path(post)
-      = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - if current_user
+      .links
+        = link_to 'Edit', edit_post_path(post)
+        = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

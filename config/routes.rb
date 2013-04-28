@@ -1,9 +1,19 @@
 Andrewpedley::Application.routes.draw do
+  get "sessions/new"
+
   get "static/about"
   get "static/home"
   get 'tags/:tag', to: 'posts#index', as: :tag
 
   resources :posts
+  resources :users
+  resources :sessions
+
+  get "signup" => "users#new", :as => "signup"
+  get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "about" => "static#about", :as => "about"
+  
   root :to => 'static#home'
 
 

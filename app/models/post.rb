@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   attr_accessible :body, :icon, :preview, :title, :published, :tag_list, :body_html
   has_many :taggings
   has_many :tags, through: :taggings
-
+  belongs_to :user
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).posts

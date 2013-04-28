@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :authorize, :except => [:index, :show]
   # GET /posts
   # GET /posts.json
   def index
@@ -49,6 +50,8 @@ class PostsController < ApplicationController
       @post.published_at = Time.now
     end
 
+    @post.user = current_user
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -85,6 +88,13 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+  def authorize
+    if !current_user
+      redirect_to root_url, alert: "Not authorized"
     end
   end
 end

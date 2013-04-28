@@ -22,7 +22,10 @@ gem 'pygments.rb'
 gem "rspec-rails", :group => [:test, :development]
 
 group :test do
+  gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'database_cleaner'
   gem "capybara"
   gem "guard-rspec"
   gem 'rb-inotify', :require => false
@@ -31,6 +34,7 @@ group :test do
   gem 'rb-fchange', :require => false
   gem 'guard-spork'
   gem 'spork'
+  gem 'launchy'
 end
 
 group :development do

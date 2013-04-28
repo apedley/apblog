@@ -7,15 +7,16 @@
     %title= full_title(yield(:title))
 
   %body
+    = render 'layouts/navbar'
     .container
-      .row
-        = render 'layouts/header'
+      = render 'layouts/header'
       .row
         .span9
           .flash
-            %p.notice= notice
+            - if notice
+              %p.alert.alert-success= notice
             - if alert
-              %p.alert= alert
+              %div.alert.alert-error= alert
 
           = yield
         .span3
