@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params[:tag]
-      @posts = Post.tagged_with(params[:tag])
+      @posts = Post.tagged_with(params[:tag]).page(params[:page]).per(6)
     else
-      @posts = Post.all
+      @posts = Post.published.page(params[:page]).per(6)
     end
 
     respond_to do |format|

@@ -21,8 +21,8 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def self.published(limit=5)
-    where(:published => true).order("published_at desc").limit(limit)
+  def self.published()
+    where(:published => true).order("published_at desc")
   end
 
   validates_presence_of :body, :title, :published

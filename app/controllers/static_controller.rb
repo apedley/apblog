@@ -3,7 +3,7 @@ class StaticController < ApplicationController
   end
 
   def home
-    @posts = Post.published
+    @posts = Post.published.limit(5)
 
   end
 

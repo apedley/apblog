@@ -20,6 +20,7 @@ gem 'redcarpet'
 gem 'pygments.rb'
 
 gem 'kaminari'
+gem 'sunspot_rails'
 
 gem "rspec-rails", :group => [:test, :development]
 
