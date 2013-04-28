@@ -10,7 +10,7 @@
     = render 'layouts/navbar'
     .container
       = render 'layouts/header'
-      .row
+      .row#main
         .span9
           .flash
             - if notice
@@ -21,3 +21,5 @@
           = yield
         .span3
           = render 'layouts/sidebar'
+      .row#footer
+        = render 'layouts/footer'

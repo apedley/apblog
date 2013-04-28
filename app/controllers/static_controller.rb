@@ -3,7 +3,10 @@ class StaticController < ApplicationController
   end
 
   def home
-    @posts = Post.latest
+    @posts = Post.published
 
+  end
+
+  def contact
   end
 end

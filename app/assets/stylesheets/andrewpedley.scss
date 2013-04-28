@@ -1,7 +1,37 @@
-body {
-	background: #fefefe;
+h1#title {
+  margin: .8em 0;
+  padding-bottom: 15px;
+  a {
+    color: #000;
+    &:hover, &:visited { 
+      color: #000;
+      text-decoration: none;
+    }
+  }
 }
 
-.o {
-  margin-left: 0px;
+form.edit-post {
+  input, textarea {
+    width: auto;
+  }
+}
+.tag_cloud {
+  .l {
+    font-size: 2em;
+  }
+  .m {
+    font-size: 1.5em;
+  }
+  .s {
+    font-size: .9em;
+  }
+}
+
+#footer {
+  margin: 2em 0 1em 0;
+
+  div {
+    margin: 0;
+    text-align: center;
+  }
 }

@@ -17,6 +17,10 @@ module ApplicationHelper
     end
   end
 
+  def tag_list
+    Tag.used
+  end
+
   class HTMLwithPygments < Redcarpet::Render::HTML
     def block_code(code, language)
       Pygments.highlight(code, :lexer => language)

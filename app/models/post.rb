@@ -21,14 +21,13 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def self.published(limit=5)
+    where(:published => true).order("published_at desc").limit(limit)
+  end
 
   validates_presence_of :body, :title, :published
 
-  scope :published, where(:published => true)
-  scope :latest, order("published_at desc").limit(5)
-
-
-
 end
+
 
 

@@ -13,6 +13,7 @@ Andrewpedley::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"
   get "about" => "static#about", :as => "about"
+  get "contact" => "static#contact", :as => "contact"
   
   root :to => 'static#home'
 

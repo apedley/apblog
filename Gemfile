@@ -19,6 +19,8 @@ gem 'bootstrap-sass'
 gem 'redcarpet'
 gem 'pygments.rb'
 
+gem 'kaminari'
+
 gem "rspec-rails", :group => [:test, :development]
 
 group :test do
@@ -40,4 +42,5 @@ end
 group :development do
   gem 'meta_request'
   gem 'pry-rails'
+  gem 'better_errors'
 end
