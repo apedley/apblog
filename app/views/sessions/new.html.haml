@@ -1,0 +1,13 @@
+#big_login
+  = form_tag sessions_path do
+    .field
+      = label_tag :name
+      = text_field_tag :name
+    .field
+      = label_tag :password
+      = password_field_tag :password
+    .field
+      = label_tag :remember_me
+      = check_box_tag :remember_me, 1, params[:remember_me]
+    .actions
+      = submit_tag "Login"
