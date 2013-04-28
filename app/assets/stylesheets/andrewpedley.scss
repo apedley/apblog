@@ -1,19 +1,57 @@
-h1#title {
-  margin: .8em 0;
-  padding-bottom: 15px;
+.row.top_row {
+  background-color: darken($textColor, 10%);
+  // @include box-shadow(0, 2px, 10px, #000);
+  margin-bottom: 1.2em;
+}
+h1#site_title {
   a {
-    color: #000;
+    color: $grayLighter;
     &:hover, &:visited { 
-      color: #000;
+      color: $grayLighter;
       text-decoration: none;
     }
   }
 }
 .post {
-  margin-bottom: .5em;
+  margin-bottom: 3em;
   padding-bottom: 2em;
   border-bottom: .2em solid $grayDark;
   // @include border-radius(4px);
+  .info {
+    margin-bottom: 1.5em;
+    p {
+      display: inline;
+      margin-right: 1em;
+    }
+  }
+  p.continued {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1em 5em;
+    text-align: right;
+  }
+}
+textarea#post_body {
+  font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+  width: 80%;
+}
+.tag_cloud {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline;
+    }
+    a {
+      text-decoration: none;
+      color: $grayDark;
+      padding: 3px 4px;
+    }
+    li.l { font-size: 1.40em; }
+    li.m { font-size: 1.00em; }
+    li.s { font-size: 0.60em; }
+  }
 }
 form.edit-post {
   input, textarea {

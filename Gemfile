@@ -18,10 +18,11 @@ gem 'bootstrap-sass'
 
 gem 'redcarpet'
 gem 'pygments.rb'
-gem 'markdownizer'
 gem 'truncate_html'
 
 gem 'kaminari'
+
+gem 'turbolinks'
 
 gem "rspec-rails", :group => [:test, :development]
 

@@ -1,17 +1,17 @@
-.page-header
-  %h1
-    = @post.title
-    %small= @post.subtitle
+.post
+  %h2.title
+    = link_to @post.title, @post
+  .info
+    %p.author
+      = link_to @post.user.name, @post.user
+    %p.date
+      = @post.published_at.to_formatted_s(:short)
+    %p.tags
+      - @post.tags.map(&:name).each do |t|
+        = link_to t, tag_path(t)
+  .body= raw @post.rendered_body
+  - if current_user
+    .links
+      = link_to 'Edit', edit_post_path(@post)
+      = link_to 'Destroy', @post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%p.tags
-  - @post.tags.map(&:name).each do |t|
-    = link_to t, tag_path(t)
-%p.author
-  = link_to @post.user.name, @post.user
-.body= raw @post.body_html
-
-- if current_user
-  .links
-    = link_to 'Edit', edit_post_path(@post)
-    \|
-    = link_to 'Back', posts_path

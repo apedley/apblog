@@ -1,8 +1,11 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :icon, :preview, :title, :published, :tag_list, :body_html, :subtitle
+  attr_accessible :body, :icon, :title, :published, :tag_list, :rendered_body, :subtitle
+  validates_presence_of :body, :title, :published, :user_id
   has_many :taggings
   has_many :tags, through: :taggings
   belongs_to :user
+
+  before_save :render_body
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).posts
@@ -25,9 +28,28 @@ class Post < ActiveRecord::Base
     where(:published => true).order("published_at desc")
   end
 
-  validates_presence_of :body, :title, :published
+  private
 
+  def render_body
+    renderer = HTMLwithPygments.new(:hard_wrap => true)
+    options = {
+      :fenced_code_blocks => true,
+      :no_intra_emphasis => true,
+      :autolink => true,
+      :strikethrough => true,
+      :lax_html_blocks => true,
+      :tables => true,
+      :superscript => true
+    }
+    self.rendered_body = Redcarpet::Markdown.new(renderer, options).render(self.body)
+  end
 end
 
+
+class HTMLwithPygments < Redcarpet::Render::HTML
+    def block_code(code, language)
+      Pygments.highlight(code, :lexer => language)
+    end
+  end
 
 

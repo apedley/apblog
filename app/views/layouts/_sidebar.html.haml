@@ -4,7 +4,9 @@
     %p= link_to "#{t.name.capitalize} (#{t.taggings.count})", tag_path(t.name)
 %hr
 .tag_cloud
-  - tag_cloud(Post.tag_counts, %w{s m l}) do |tag, css_class|
-    = link_to tag.name, tag_path(tag.name), class:css_class
+  %ul.tag_cloud
+    - tag_cloud(Post.tag_counts, %w{s m l}) do |tag, css_class|
+      %li{ 'class' => css_class }
+        = link_to tag.name, tag_path(tag.name), class:css_class
 
 

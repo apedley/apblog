@@ -14,5 +14,6 @@ describe Post do
   end
 
   it "has a user" do
+    expect(build(:post, user_id: nil)).to have(1).errors_on(:user_id)
   end
 end

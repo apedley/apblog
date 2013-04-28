@@ -20,7 +20,6 @@ module ApplicationHelper
   def tag_list
     Tag.used
   end
-
   class HTMLwithPygments < Redcarpet::Render::HTML
     def block_code(code, language)
       Pygments.highlight(code, :lexer => language)
@@ -37,9 +36,9 @@ module ApplicationHelper
       :lax_html_blocks => true,
       :superscript => true
     }
-    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+    Redcarpet::Markdown.new(renderer, options).render(text)
   end
-
+  
   def preview(html)
     r = Random.rand(30..120) + 540
     truncate_html(html, length: r, omission: '...(cont)')

@@ -3,3 +3,4 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
 Andrewpedley::Application.initialize!
+Haml::Template.options[:ugly] = true
