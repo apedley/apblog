@@ -14,8 +14,6 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'haml-rails'
-gem 'bootstrap-sass'
-
 
 gem 'redcarpet'
 gem 'pygments.rb'
