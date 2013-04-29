@@ -16,13 +16,12 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 
+
 gem 'redcarpet'
 gem 'pygments.rb'
 gem 'truncate_html'
 
 gem 'kaminari'
-
-gem 'turbolinks'
 
 gem "rspec-rails", :group => [:test, :development]
 
