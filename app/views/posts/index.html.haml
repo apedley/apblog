@@ -12,7 +12,8 @@
       %p.author
         = link_to post.user.name, post.user
     .body
-      = preview post.rendered_body
+      :preserve
+        #{post.preview}
       %p.continued
         = link_to 'Read More', post
     - if current_user
