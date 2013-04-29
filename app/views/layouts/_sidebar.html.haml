@@ -1,6 +1,6 @@
 .tag_list
   %h3 Tags
-  - Tag.used.each do |t|
+  - Tag.used.take(12).each do |t|
     %p= link_to "#{t.name.capitalize} (#{t.taggings.count})", tag_path(t.name)
 %hr
 .tag_cloud
