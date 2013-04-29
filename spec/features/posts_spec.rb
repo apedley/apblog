@@ -52,7 +52,6 @@ feature 'display posts' do
     visit root_path
     first(:link, post.title).click
     expect { click_link 'Destroy' }.to change(Post, :count).by(-1)
-
   end
 
 end
