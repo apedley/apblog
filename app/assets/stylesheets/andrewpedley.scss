@@ -4,7 +4,7 @@ $baseLinkColor: #16a085;
 $baseLinkHoverColor: lighten($baseLinkColor, 10%);
 $highlightColor: #e67e22;
 body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+  font-family: 'Sintony', sans-serif;
 }
 
 a {
@@ -24,13 +24,6 @@ a {
 #header {
   text-align: center;
   background-color: $headerBackgroundColor;
-  border-bottom: 12px solid $highlightColor;
-  -webkit-border-bottom-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
   margin-left: 0;
   h1 {
     padding: 40px 0;
@@ -66,15 +59,6 @@ a {
     font-size: 2em;
     line-height: 2em;
   }
-  hr {
-    color: $highlightColor;
-    background-color: $highlightColor;
-    height: 3px;
-    border: 0;
-    border-top: 0;
-    border-bottom: 0;
-    margin: 3em 0 2em 0;
-  }
   #recent_posts {
     font-size: 1.2em;
     font-weight: bold;
@@ -102,8 +86,7 @@ a {
 #content {
   .post {
     padding-bottom: 2em;
-    margin-bottom: 3em;
-    border-bottom: 2px solid $highlightColor;
+    margin-bottom: 2em;
     h2.title {
 
     }
@@ -112,16 +95,14 @@ a {
       p {
         display:inline;
         a {
-          color: $highlightColor;
           font-weight: bold;
-          &:hover {
-            color: darken($highlightColor, 10%);
-          }
         }
       }
       margin-bottom: 1em;
     }
-
+    .body {
+      margin-bottom: 2em;
+    }
     p.continued {
       text-align: right;
     }
