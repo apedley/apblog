@@ -19,3 +19,5 @@
 .rvmrc
 apblog.sublime-project
 apblog.sublime-workspace
+Capfile
+config/deploy.rb
