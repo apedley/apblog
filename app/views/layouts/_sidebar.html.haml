@@ -1,28 +1,40 @@
-#side_search
-  %h2 Search
-  = form_tag("/search", :method => "get", :class => "form-search") do 
-    = text_field_tag :q, "Search", :class => "input-medium search-query"
-    = submit_tag("Go", :class => "btn btn-success")
-%hr
-#recent_posts
-  %h2 Recent Posts
+%h3
+  Search
+.control-group
+  .controls
+    .input-append
+      :plain
+        <input class="span2" id="appendedInputButton" size="16" type="text"><button class="btn btn-success" type="button">Go!</button>
+
+%h3
+  Recent Posts
+%ul.list-sidebar
   - Post.recent.each do |p|
-    %p= link_to p.title, p
-%hr
-#tag_list
-  %h2 Tags
-  - Tag.used.take(10).each do |t|
-    %p.tag= link_to "#{t.name.upcase}", tag_path(t.name)
+    %li
+      %i.icon-pencil
+      =link_to p.title, p
 
-/ .tag_list
-/   %h3 Tags
-/   - Tag.used.take(12).each do |t|
-/     %p.tag= link_to "#{t.name.capitalize} (#{t.taggings.count})", tag_path(t.name) 
-/ %hr
-/ .tag_cloud
-/   %ul.tag_cloud
-/     - tag_cloud(Post.tag_counts, %w{s m l}) do |tag, css_class|
-/       %li{ 'class' => css_class }
-/         = link_to tag.name, tag_path(tag.name), class:css_class
-
-
+%h3
+  Tags
+%p.post-tags
+  - Tag.used.take(12).each do |t|
+    = link_to tag_path(t.name) do
+      %span.label.label-success
+        =t.name
+    
+- if current_user
+  %h3
+    Welcome
+  %p= "Logged in as: #{current_user.name}"
+  - if current_user.admin
+    %p= link_to "New Post", new_post_path
+  %p= link_to "Logout", logout_path
+- else
+  %h3
+    Login
+  = form_tag(sessions_path, :class => 'form-horizontal') do
+    = text_field_tag :name, nil, :placeholder => 'username', :class => 'input-small'
+    %br
+    = password_field_tag :password, nil, :placeholder => 'password', :class => 'input-small'
+    %br
+    = button_tag 'Log in', :class => "btn"

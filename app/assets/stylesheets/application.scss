@@ -10,7 +10,9 @@
  *
  *= require_self
  */
-@import "bootstrap_and_overrides";
+@import "bootstrap";
 @import "pygments";
 @import "css3mixins";
+@import "theme";
+@import "icon-style";
 @import "andrewpedley";

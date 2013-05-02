@@ -6,13 +6,13 @@
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
-$navbarBackground: #bdc3c7;
-$navbarText: #34495e;
-$navbarBackgroundHighlight: lighten($navbarBackground, 20%);
-$navbarLinkColor: $navbarText;
-$navbarLinkColorHover: lighten($navbarLinkColor, 20%);
-$navbarLinkBackgroundActive: darken($navbarBackgroundHighlight, 10%);
-$navbarLinkColorActive: $navbarText;
+// $navbarBackground: #bdc3c7;
+// $navbarText: #34495e;
+// $navbarBackgroundHighlight: lighten($navbarBackground, 20%);
+// $navbarLinkColor: $navbarText;
+// $navbarLinkColorHover: lighten($navbarLinkColor, 20%);
+// $navbarLinkBackgroundActive: darken($navbarBackgroundHighlight, 10%);
+// $navbarLinkColorActive: $navbarText;
 
 
 @import "bootstrap";

@@ -1,27 +1,33 @@
-= paginate @posts
+- provide(:title, 'Blog')
+
 - @posts.each do |post|
-  .post
-    %h2.title
-      = link_to post.title, post
-    .info
-      %p.author
-        = link_to post.user.name, post.user
-        &nbsp;|
-      %p.date
-        = post.published_at.to_formatted_s(:short)
-        &nbsp;|
-      %p.tags
-        - post.tags.map(&:name).each do |t|
-          = link_to t, tag_path(t)
+  .post-contents
+    .post-content-title
+      %h2.post-title
+        = link_to post.title, post
+      %p.post-content-meta
+        %span.post-tags
+          - post.tags.map(&:name).each do |t|
+            = link_to tag_path(t) do
+              %span.label.label-success
+                =t
+        %span.post-author
+          &nbsp;//&nbsp;
+          %i.icon-user
+          = link_to post.user.name, post.user
+        %span.post-date
+          &nbsp;//&nbsp;
+          %i.icon-calendar
+          = post.published_at.to_formatted_s(:short)
+        %span.post-comment-count
+          &nbsp;//&nbsp;
+          %i.icon-comment
+          = "Comments: #{post.comments.count}"
     .body
       :preserve
         #{post.preview}
-      = link_to 'Read More', post, :class => 'btn btn-success'
-    - if post.user == current_user
-      .links
-        = link_to 'Edit', edit_post_path(post)
-        = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+      %p
+        = link_to 'Read More', post, :class => 'btn btn-success'
 
 = paginate @posts
 

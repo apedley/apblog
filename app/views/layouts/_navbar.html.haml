@@ -14,29 +14,48 @@
 /           %li= link_to "News", posts_path
 /           %li= link_to "Contact", contact_path
 
-.navbar.navbar-static-top
-  .navbar-inner
-    .container
-      %ul.nav
-        %li= link_to "Home", root_path
-        %li= link_to "About", about_path
-        %li= link_to "Blog", posts_path
-        %li= link_to "Contact", contact_path
-        %li.divider
-      %ul.nav.pull-right
-        - if current_user
-          %li.dropdown
-            %a.dropdown-toggle{ 'data-toggle' => "dropdown", :href => "#" }
-              =current_user.name
-              %b.caret
-            %ul.dropdown-menu
-              - if allow? "posts", "new"
-                %li= link_to "New Post", new_post_path
-                %li.divider
-              %li= link_to "Logout", logout_path
-        - else
-          %li= link_to "Sign Up", signup_path
-          = form_tag(sessions_path, :class => 'navbar-form pull-left') do
-            = text_field_tag :name, nil, :placeholder => 'username', :class => 'input-small'
-            = password_field_tag :password, nil, :placeholder => 'password', :class => 'input-small'
-            = button_tag 'Log in', :class => "btn"
+/ .navbar.navbar-static-top
+/   .navbar-inner
+/     .container
+/       %ul.nav
+/         %li= link_to "Home", root_path
+/         %li= link_to "About", about_path
+/         %li= link_to "Blog", posts_path
+/         %li= link_to "Contact", contact_path
+/         %li.divider
+/       %ul.nav.pull-right
+/         - if current_user
+/           %li.dropdown
+/             %a.dropdown-toggle{ 'data-toggle' => "dropdown", :href => "#" }
+/               =current_user.name
+/               %b.caret
+/             %ul.dropdown-menu
+/               - if allow? "posts", "new"
+/                 %li= link_to "New Post", new_post_path
+/                 %li.divider
+/               %li= link_to "Logout", logout_path
+/         - else
+/           %li= link_to "Sign Up", signup_path
+/           = form_tag(sessions_path, :class => 'navbar-form pull-left') do
+/             = text_field_tag :name, nil, :placeholder => 'username', :class => 'input-small'
+/             = password_field_tag :password, nil, :placeholder => 'password', :class => 'input-small'
+/             = button_tag 'Log in', :class => "btn"
+
+#menu
+  %ul
+    - if current_page?(root_path)
+      %li.active=link_to "Home", root_path
+    - else
+      %li=link_to "Home", root_path
+    - if current_page?(about_path)
+      %li.active=link_to "About", about_path
+    - else
+      %li=link_to "About", about_path
+    - if current_page?(posts_path)
+      %li.active=link_to "Blog", posts_path
+    - else
+      %li=link_to "Blog", posts_path
+-#    - if current_page?(contact_path)
+-#      %li.active=link_to "Contact", contact_path
+-#    - else
+-#      %li=link_to "Contact", contact_path

@@ -1,43 +1,38 @@
-.post
-  %h2.title
-    = link_to @post.title, @post
-  .info
-    %p.author
-      = link_to @post.user.name, @post.user
-      &nbsp;|
-    %p.date
-      = @post.published_at.to_formatted_s(:short)
-      &nbsp;|
-    %p.tags
-      - @post.tags.map(&:name).each do |t|
-        = link_to t, tag_path(t)
+- provide(:title, @post.title)
+.post-contents
+  .post-content-title
+    %h2.post-title
+      = link_to @post.title, @post
+    %p.post-content-meta
+      %span.post-tags
+        - @post.tags.map(&:name).each do |t|
+          = link_to tag_path(t) do
+            %span.label.label-success
+              =t
+      %span.post-author
+        &nbsp;//&nbsp;
+        %i.icon-user
+        = link_to @post.user.name, @post.user
+      %span.post-date
+        &nbsp;//&nbsp;
+        %i.icon-calendar
+        = @post.published_at.to_formatted_s(:short)
+      %span.post-comment-count
+        &nbsp;//&nbsp;
+        %i.icon-comment
+        = "Comments: #{@post.comments.count}"
   .body
     :preserve
       #{@post.rendered_body}
-  - if @post.user == current_user
-    .links
-      = link_to 'Edit', edit_post_path(@post), :class => "btn btn-mini"
-      = link_to 'Destroy', @post, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-mini btn-danger"
-= form_for [@post, Comment.new] do |f|
-  = f.text_area :body, :rows => "3"
-  = f.submit "Add a comment", :class => "btn"
-.comments
-  = render :partial => 'comments/comment', :collection => @post.comments
-
-/ - if @post.comments_open
-/   .new_comment
-/     %h4 Make a comment
-/      = form_for([@post, @post.comments.build]) do |f|
-/      = f.text_area :body
-/      = f.submit "Add", :class => "btn"
-/ - if @post.comments.count > 0
-/   .comments
-/     %h4
-/       Comments (#{@post.comments.count})
-/     - @post.comments.each do |c|
-/       .comment
-/         %p.name
-/           = c.user.name
-/           &nbsp;@&nbsp;
-/           = c.created_at.to_formatted_s(:short)
-/         %p=c.body
+.comment
+  %h3= "#{@post.comments.count} comments on this post"
+  %ul
+    = render :partial => "comments/comment", :collection => @post.comments
+%br.clearfix
+%h3.marg20-btm
+  Post Comment
+.post-comment
+  = form_for [@post, Comment.new], :html => { :class => 'form-horizontal' } do |f|
+    = f.text_area :body, :rows => "3", :class => "input-xxlarge inp-btm", :style => "resize:none"
+    %br
+    = f.submit "Submit", :class => "btn btn-success"
