@@ -28,6 +28,10 @@ class Post < ActiveRecord::Base
     where(:published => true).order("published_at desc")
   end
 
+  def self.recent
+    where(:published => true).limit(5).order("published_at desc")
+  end
+
   private
 
   def render_body

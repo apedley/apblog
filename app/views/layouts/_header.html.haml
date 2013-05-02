@@ -1,8 +1,7 @@
-.row.top_row
-  .span8
-    %h1#site_title
-      = link_to 'Andrew Pedley', root_url
-  .span4
+.row.top_row#header
+  %h1
+    = link_to 'Andrew Pedley', root_url
+    /.span4
     / .user_nav
     /   - if current_user
     /     %p Logged in as #{current_user.name}

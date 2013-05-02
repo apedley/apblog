@@ -1,17 +1,23 @@
 !!!
 %html
   %head
+    :plain
+      <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+      <![endif]-->
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
     %title= full_title(yield(:title))
 
-  %body.bp
+  %body
     = render 'layouts/navbar'
     .container
       = render 'layouts/header'
       .row#main
-        .span9
+        .span3#sidebar
+          = render 'layouts/sidebar'
+        .span9#content
           .flash
             - if notice
               %p.alert.alert-success= notice
@@ -19,7 +25,5 @@
               %div.alert.alert-error= alert
 
           = yield
-        .span3
-          = render 'layouts/sidebar'
       .row#footer
         = render 'layouts/footer'

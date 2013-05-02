@@ -1,4 +1,4 @@
-= form_for @post, html: { class: "edit-post" } do |f|
+= form_for @post, :html => { :class => 'form-horizontal' } do |f|
   = f.label :title
   = f.text_field :title
   = f.label :subtitle

@@ -1,12 +1,28 @@
-.tag_list
-  %h3 Tags
-  - Tag.used.take(12).each do |t|
-    %p.tag= link_to "#{t.name.capitalize} (#{t.taggings.count})", tag_path(t.name) 
+#side_search
+  %h2 Search
+  = form_tag("/search", :method => "get", :class => "form-search") do 
+    = text_field_tag :q, "Search", :class => "input-medium search-query"
+    = submit_tag("Go", :class => "btn btn-success")
 %hr
-.tag_cloud
-  %ul.tag_cloud
-    - tag_cloud(Post.tag_counts, %w{s m l}) do |tag, css_class|
-      %li{ 'class' => css_class }
-        = link_to tag.name, tag_path(tag.name), class:css_class
+#recent_posts
+  %h2 Recent Posts
+  - Post.recent.each do |p|
+    %p= link_to p.title, p
+%hr
+#tag_list
+  %h2 Tags
+  - Tag.used.take(10).each do |t|
+    %p.tag= link_to "#{t.name.upcase}", tag_path(t.name)
+
+/ .tag_list
+/   %h3 Tags
+/   - Tag.used.take(12).each do |t|
+/     %p.tag= link_to "#{t.name.capitalize} (#{t.taggings.count})", tag_path(t.name) 
+/ %hr
+/ .tag_cloud
+/   %ul.tag_cloud
+/     - tag_cloud(Post.tag_counts, %w{s m l}) do |tag, css_class|
+/       %li{ 'class' => css_class }
+/         = link_to tag.name, tag_path(tag.name), class:css_class
 
 

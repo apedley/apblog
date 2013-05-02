@@ -1,4 +1,20 @@
-.navbar.navbar-static-top.navbar-inverse
+/ .navbar.navbar-fixed-top
+/   .navbar-inner
+/     .container
+/       %a.btn.btn-navbar{ 'data-toggle' => 'collapse', 'data-target' => '.nav-collapse' }
+/         %span.icon-bar
+/         %span.icon-bar
+/         %span.icon-bar
+/       %a.brand{ :href => "#" }
+/         Some store
+/       .nav-collapse
+/         %ul.nav
+/           %li= link_to "Home", root_path
+/           %li= link_to "About", about_path
+/           %li= link_to "News", posts_path
+/           %li= link_to "Contact", contact_path
+
+.navbar.navbar-static-top
   .navbar-inner
     .container
       %ul.nav
@@ -23,7 +39,3 @@
             = text_field_tag :name, nil, :placeholder => 'username', :class => 'input-small'
             = password_field_tag :password, nil, :placeholder => 'password', :class => 'input-small'
             = button_tag 'Log in', :class => "btn"
-
-        / %li
-        /   = form_tag("/search", :method => "get", :class => "navbar-search pull-left") do
-        /     = text_field_tag(:q, nil, :placeholder => "Search", :class => "search-query")
