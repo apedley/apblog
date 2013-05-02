@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429185749) do
+ActiveRecord::Schema.define(:version => 20130502114627) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20130429185749) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "auth_token"
+    t.boolean  "admin"
   end
 
 end
