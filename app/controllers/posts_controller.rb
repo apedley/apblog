@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_filter :authorize, :except => [:index, :show]
   # GET /posts
   # GET /posts.json
   def index
@@ -91,10 +90,5 @@ class PostsController < ApplicationController
     end
   end
 
-  private
-  def authorize
-    if !current_user
-      redirect_to root_url, alert: "Not authorized"
-    end
-  end
+
 end
