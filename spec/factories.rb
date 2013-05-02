@@ -13,6 +13,6 @@ FactoryGirl.define do
     sequence(:preview) { |n| "preview for post #{n}"}
     published true
     published_at Time.now
-    association :user
+    user
   end
 end

@@ -48,6 +48,9 @@ Spork.prefork do
     config.include FactoryGirl::Syntax::Methods
   end
 
+  def logger
+    Rails.logger
+  end
 end
 
 Spork.each_run do
