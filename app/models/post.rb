@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :body, :title, :published, :user_id
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :comments, :as => :commentable
   belongs_to :user
 
   before_save :render_body

@@ -35,7 +35,7 @@ feature 'display posts' do
     visit root_path
     expect(page).to_not have_link('edit')
 
-    user = create(:user)
+    user = create(:user, admin: true)
     visit login_path
 
     within("div#big_login") do
@@ -59,7 +59,7 @@ feature 'display posts' do
     visit root_path
     expect(page).to_not have_link('Destroy')
 
-    user = create(:user)
+    user = create(:user, admin: true)
     visit login_path
 
     within("div#big_login") do

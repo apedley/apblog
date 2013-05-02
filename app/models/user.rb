@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :password_digest, :on => :create
 	
 	has_many :posts
+  has_many :comments
 
 	before_create { generate_token(:auth_token) }
 

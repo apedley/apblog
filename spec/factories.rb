@@ -1,12 +1,18 @@
 require 'faker'
 
 FactoryGirl.define do
-  factory :user do |f|
-    f.sequence(:name) { |n| "foo#{n}" }
-    f.sequence(:email) { |n| "foo#{n}@example.com" }
-    f.password "secret"
-    f.admin false
+  
+  factory :user do
+    sequence :name do |n|
+      "foo#{n}"
+    end
+    sequence :email do |n|
+      "foo#{n}@example.com"
+    end
+    password "secret"
+    admin false
   end
+
 
   factory :post do
     title { Faker::Lorem.sentence }
@@ -14,6 +20,9 @@ FactoryGirl.define do
     sequence(:preview) { |n| "preview for post #{n}"}
     published true
     published_at Time.now
+    comments_open true
     user
+
+    
   end
 end

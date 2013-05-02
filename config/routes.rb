@@ -5,7 +5,14 @@ Andrewpedley::Application.routes.draw do
   get "static/home"
   get 'tags/:tag', to: 'posts#index', as: :tag
 
-  resources :posts
+  resources :comments do
+    resources :comments
+  end
+ 
+  resources :posts do
+    resources :comments
+  end
+  
   resources :users
   resources :sessions
 

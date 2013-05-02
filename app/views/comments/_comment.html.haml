@@ -1,0 +1,10 @@
+%li.comment
+  %p
+    = "#{comment.user.name} @ #{comment.created_at.to_formatted_s(:short)}"
+  .body= comment.body
+
+  = link_to 'Add a Reply', new_comment_comment_path(comment)
+
+  - unless comment.comments.empty?
+    %ul.comment_list
+      = render :partial => 'comments/comment', :collection => comment.comments

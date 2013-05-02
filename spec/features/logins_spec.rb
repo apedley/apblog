@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-feature 'maintaining posts' do
+feature 'maintaining posts as admin' do
   def login
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user, admin: true)
     visit login_path
     within("div#big_login") do
       fill_in "Name", :with => user.name
