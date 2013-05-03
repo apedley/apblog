@@ -1,0 +1,5 @@
+- provide(:title, 'Post')
+
+.comment
+  %ul
+    = render :partial => "comments/comment", :collection => @comments
