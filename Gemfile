@@ -22,7 +22,8 @@ gem 'pygments.rb'
 gem 'truncate_html'
 
 gem 'kaminari'
-
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 gem "rspec-rails", :group => [:test, :development]
 
 group :test do

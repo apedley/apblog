@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :icon, :title, :published, :tag_list, :rendered_body, :subtitle
+  attr_accessible :body, :icon, :title, :published, :tag_list, :rendered_body, :subtitle, :preview
   validates_presence_of :body, :title, :published, :user_id
   has_many :taggings
   has_many :tags, through: :taggings
@@ -7,6 +7,16 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   before_save :render_body
+
+  searchable do
+    # text :title, :boost => 2.0
+    text :body, :stored => true
+
+    string :title, :stored => true
+    boolean :published
+    time :published_at
+
+  end
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).posts

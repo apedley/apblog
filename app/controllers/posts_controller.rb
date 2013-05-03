@@ -75,5 +75,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.search do
+      keywords params[:q], :highlight => true
+      with(:published, true)
+    end.results
+  end
 
 end

@@ -3,8 +3,10 @@
 .control-group
   .controls
     .input-append
-      :plain
-        <input class="span2" id="appendedInputButton" size="16" type="text"><button class="btn btn-success" type="button">Go!</button>
+      = form_tag("/posts/search", :method => 'get') do
+        = text_field_tag :q, nil, :size => "16", :id => "appendedInputButton", :class => "span2", :placeholder => "Search"
+        = submit_tag "Go!", :class => "btn btn-success"
+      
 
 %h3
   Recent Posts
@@ -26,9 +28,12 @@
   %h3
     Welcome
   %p= "Logged in as: #{current_user.name}"
-  - if current_user.admin
-    %p= link_to "New Post", new_post_path
+  
   %p= link_to "Logout", logout_path
+  - if current_user.admin
+    %h3 Admin
+    %p= link_to "New Post", new_post_path
+    %p= link_to "Comments", comments_path
 - else
   %h3
     Login
@@ -38,3 +43,4 @@
     = password_field_tag :password, nil, :placeholder => 'password', :class => 'input-small'
     %br
     = button_tag 'Log in', :class => "btn"
+

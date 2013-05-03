@@ -1,118 +1,27 @@
-// $headerBackgroundColor: #16a085;
-// $baseTextColor: #ecf0f1;
-// $baseLinkColor: #16a085;
-// $baseLinkHoverColor: lighten($baseLinkColor, 10%);
-// $highlightColor: #e67e22;
-// body {
-//   font-family: 'Sintony', sans-serif;
-// }
 
-// a {
-//   color: $baseLinkColor;
-//   &:hover {
-//     color: lighten($baseLinkColor, 10%);
-//     text-decoration: none;
-//   }
-// }
+.comment {
+  .not-approved {
+    background: #deaaaa;
+  }
+  .approved { 
+    background: #95C468;
+  }
+  .comment-buttons { 
+    margin:20px 40px;
+  }
+  .moderation {
+    margin: 15px 0;
+  }
+  ul {
+    ul {
+      margin-left: 30px;
+    }
+  }
+}
 
-// .btn-success, .btn-success:hover {
-//   background-color: $baseLinkColor;
-//   background-image: none;
-// }
-
-
-// #header {
-//   text-align: center;
-//   background-color: $headerBackgroundColor;
-//   margin-left: 0;
-//   h1 {
-//     padding: 40px 0;
-//     font-size: 40px;
-//     line-height: 40px;
-//     text-align: center;
-//     margin-top: 0;
-//     a {
-//       color: $baseTextColor;
-//       text-shadow: 0 0 1px #222;
-//       -moz-text-shadow: 0 0 1px #222;
-//       -o-text-shadow: 0 0 1px #222;
-//       -webkit-text-shadow: 0 0 1px #222;
-//       transition: text-shadow 0.5s;
-//       -webkit-transition: text-shadow 0.5s;
-//       -moz-transition: text-shadow 0.5s;
-//       -o-transition: text-shadow 0.5s;
-//       &:hover {
-//         text-shadow: 0 -1px rgba(0,0,0,0.2),0px 0px 8px rgba(255,255,255,0.9);
-//         text-decoration: none;
-//       }
-//     }
-//   }
-// }
-
-// .top_row {
-//   margin-bottom: 3em;
-// }
-
-// #sidebar {
-//   h2 {
-//     margin-bottom: 5px;
-//     font-size: 2em;
-//     line-height: 2em;
-//   }
-//   #recent_posts {
-//     font-size: 1.2em;
-//     font-weight: bold;
-//   }
-//   #tag_list {
-//     p.tag {
-//       display: inline;
-//       margin: 0px 3px 3px 0;
-//       a {
-//         background: $baseLinkColor;
-//         color: white;
-//         font-weight: bold;
-//         -webkit-border-radius: 3px;
-//         -moz-border-radius: 3px;
-//         border-radius: 3px;
-//         padding: 2px 4px;
-//         line-height: 30px;
-//       }
-//     }
-//   }
-// }
-
-
-
-// #content {
-//   .post {
-//     padding-bottom: 2em;
-//     margin-bottom: 2em;
-//     h2.title {
-
-//     }
-
-//     .info {
-//       p {
-//         display:inline;
-//         a {
-//           font-weight: bold;
-//         }
-//       }
-//       margin-bottom: 1em;
-//     }
-//     .body {
-//       margin-bottom: 2em;
-//     }
-//     p.continued {
-//       text-align: right;
-//     }
-
-//   }
-//   .comments {
-
-//     li {
-//       list-style-type: none;
-//     }
-//   }
-
-// }
+form#new_post {
+  textarea {
+    font-family: Courier, monospace;
+    
+  }
+}

@@ -24,6 +24,8 @@
   .body
     :preserve
       #{@post.rendered_body}
+  - if current_user && current_user.admin
+    = link_to 'Edit', edit_post_path(@post.id), :class => 'btn'
 .comment
   %h3= "#{@post.comments.count} comments on this post"
   %ul

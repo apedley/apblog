@@ -7,10 +7,18 @@ Andrewpedley::Application.routes.draw do
 
   resources :comments do
     resources :comments
+    get :index
+    member do
+      get :approve
+    end
   end
- 
+ # match 'comments/:id/approve' => "comments#approve", :as => "approve_comment"
+
   resources :posts do
     resources :comments
+    collection do
+      get :search
+    end
   end
   
   resources :users
@@ -46,7 +54,7 @@ Andrewpedley::Application.routes.draw do
   #       post 'toggle'
   #     end
   #
-  #     collection do
+  #     collec  tion do
   #       get 'sold'
   #     end
   #   end
