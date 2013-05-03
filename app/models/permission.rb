@@ -14,7 +14,7 @@
 
 class Permission
   def initialize(user)
-    allow :users, [:new, :create]
+    # allow :users, [:new, :create]
     allow :sessions, [:new, :create, :destroy]
     allow :posts, [:index, :show, :search]
     allow :static, [:home, :about, :contact]
