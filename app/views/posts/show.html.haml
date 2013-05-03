@@ -26,15 +26,16 @@
       #{@post.rendered_body}
   - if current_user && current_user.admin
     = link_to 'Edit', edit_post_path(@post.id), :class => 'btn'
-.comment
-  %h3= "#{@post.comments.count} comments on this post"
-  %ul
-    = render :partial => "comments/comment", :collection => @post.comments
-%br.clearfix
-%h3.marg20-btm
-  Post Comment
-.post-comment
-  = form_for [@post, Comment.new], :html => { :class => 'form-horizontal' } do |f|
-    = f.text_area :body, :rows => "3", :class => "input-xxlarge inp-btm", :style => "resize:none"
-    %br
-    = f.submit "Submit", :class => "btn btn-success"
+- if @post.comments_open
+  .comment
+    %h3= "#{@post.comments.count} comments on this post"
+    %ul
+      = render :partial => "comments/comment", :collection => @post.comments
+  %br.clearfix
+  %h3.marg20-btm
+    Post Comment
+  .post-comment
+    = form_for [@post, Comment.new], :html => { :class => 'form-horizontal' } do |f|
+      = f.text_area :body, :rows => "3", :class => "input-xxlarge inp-btm", :style => "resize:none"
+      %br
+      = f.submit "Submit", :class => "btn btn-success"

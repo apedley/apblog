@@ -12,4 +12,7 @@
   = f.label :published, :class => "checkbox" do
     = f.check_box :published
     Published
+  = f.label :comments_open, :class => "checkbox" do
+    = f.check_box :comments_open
+    Open Comments
   %p= f.submit "Create", :class => "btn"
